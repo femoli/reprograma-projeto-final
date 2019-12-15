@@ -1,17 +1,18 @@
 /* O usuário deve ser capaz de:
 
-criar uma conta,
+criar uma conta, (ok)
 deletar a conta,
 fazer login,
-ler suas informações,
+encontrar todos usuários,
+ler suas informações por id, 
 encontrar todos que precisam de um livro (doações)
 
 */
 
 const { connect } = require('../models/database')
 const userModel = require('../models/userSchema')
-//const { booksModel } = require('../models/booksSchema')
-//const bcrypt = require('bcryptjs')
+const { booksModel } = require('../models/booksSchema')
+ 
 
 connect()
 
@@ -25,7 +26,21 @@ const getAll = (req, res) => {
     })
 }
 
+const add = (req, res) => {
+    const newUser = new userModel(req.body)
+
+    newUser.save((error) => {
+        if (error) {
+            return res.status(500).send(error)
+        }
+
+        return res.status(201).send(newUser)
+    })
+
+}
+
 
 module.exports = {
-getAll
+    getAll,
+    add
 }

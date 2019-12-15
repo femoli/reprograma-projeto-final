@@ -5,7 +5,7 @@ const bodyParser = require("body-parser")
 
 //rotas
 const index = require("./routes/index")
-const user = require("./routes/user")
+const users = require("./routes/users")
 
 
 app.use(function (request, response, next) {
@@ -20,7 +20,7 @@ app.use(function (request, response, next) {
 app.use(bodyParser.json())
 
 app.use("/", index)
-app.use("/user", user)
+app.use("/users", users)
 
 
 
