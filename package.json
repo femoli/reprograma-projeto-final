@@ -4,8 +4,10 @@
   "description": "Projeto final do bootcamp {reprograma} :)",
   "main": "server.js",
   "scripts": {
+    "pretest": "eslint --ignore-path .gitignore .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "start:dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -25,6 +27,8 @@
     "mongoose": "^5.8.1"
   },
   "devDependencies": {
+    "eslint": "^6.7.2",
+    "eslint-config-strongloop": "^2.1.0",
     "nodemon": "^2.0.2"
   }
 }
