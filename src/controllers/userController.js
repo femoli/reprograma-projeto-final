@@ -3,7 +3,7 @@
 criar uma conta, (ok)
 deletar a conta,
 fazer login,
-encontrar todos usuários,
+encontrar todos usuários, (ok)
 ler suas informações por id, 
 encontrar todos que precisam de um livro (doações)
 
@@ -12,7 +12,7 @@ encontrar todos que precisam de um livro (doações)
 const { connect } = require('../models/database')
 const userModel = require('../models/userSchema')
 const { booksModel } = require('../models/booksSchema')
- 
+
 
 connect()
 
@@ -39,8 +39,24 @@ const add = (req, res) => {
 
 }
 
+const getById = (req, res) => {
+    const id = req.params.id
+
+    return userModel.findById(id, (error, user) => {
+        if (error) {
+            return res.status(500).send(error)
+        }
+
+        if (user) {
+            return res.status(200).send(user)
+        }
+
+        return res.status(404).send('Usuário não encontrado.')
+    })
+}
 
 module.exports = {
     getAll,
-    add
+    add,
+    getById
 }
