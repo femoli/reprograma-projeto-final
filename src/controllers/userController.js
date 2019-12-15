@@ -4,37 +4,37 @@ criar uma conta, (ok)
 deletar a conta,
 fazer login,
 encontrar todos usuários, (ok)
-ler suas informações por id, 
+ler suas informações por id, (ok)
 encontrar todos que precisam de um livro (doações)
 
 */
 
-const { connect } = require('../models/database')
-const userModel = require('../models/userSchema')
-const { booksModel } = require('../models/booksSchema')
+const { connect } = require('../models/database');
+const userModel = require('../models/userSchema');
+const { booksModel } = require('../models/booksSchema');
 
 
-connect()
+connect();
 
 const getAll = (req, res) => {
     userModel.find((error, users) => {
         if (error) {
-            return res.status(500).send(error)
+            return res.status(500).send(error);
         }
 
-        return res.status(200).send(users)
+        return res.status(200).send(users);
     })
 }
 
 const add = (req, res) => {
-    const newUser = new userModel(req.body)
+    const newUser = new userModel(req.body);
 
     newUser.save((error) => {
         if (error) {
-            return res.status(500).send(error)
+            return res.status(500).send(error);
         }
 
-        return res.status(201).send(newUser)
+        return res.status(201).send(newUser);
     })
 
 }
@@ -44,19 +44,38 @@ const getById = (req, res) => {
 
     return userModel.findById(id, (error, user) => {
         if (error) {
+            return res.status(500).send(error);
+        }
+
+        if (user) {
+            return res.status(200).send(user);
+        }
+
+        return res.status(404).send('Usuário não encontrado.');
+    })
+}
+
+const remove = (req, res) => {
+
+    const id = req.params.id
+
+    userModel.findByIdAndDelete(id, (error, user) => {
+        if (error) {
             return res.status(500).send(error)
         }
 
         if (user) {
-            return res.status(200).send(user)
+            return res.status(200).send(`Usuário deletado com sucesso. ${user}`)
         }
 
         return res.status(404).send('Usuário não encontrado.')
     })
+
 }
 
 module.exports = {
     getAll,
     add,
-    getById
+    getById,
+    remove
 }
