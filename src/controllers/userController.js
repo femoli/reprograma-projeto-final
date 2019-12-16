@@ -7,10 +7,8 @@ encontrar todos usuários, (ok)
 ler suas informações por id, (ok)
 encontrar todos que precisam de um livro (doações), (ok)
 adicionar livros, (ok)
-deletar livros,
-alterar descrição dos livros,
-encontrar livros para serem doados,
-encontrar livros por autor,
+deletar livros, (ok)
+alterar descrição dos livros, (ok)
 
 */
 
