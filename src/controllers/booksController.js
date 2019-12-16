@@ -2,8 +2,9 @@
 
 ver todos seus livros de acordo com seu ID,
 deletar livros,
-adicionar livros,
-alterar descrição dos livros
+alterar descrição dos livros,
+encontrar livros para serem doados,
+encontrar livros por autor,
 
 */
 

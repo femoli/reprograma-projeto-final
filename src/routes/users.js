@@ -8,6 +8,10 @@ router.post("", controller.add);
 router.get("/donations", controller.getDonation);
 router.get("/:id", controller.getById);
 router.delete("/:id", controller.remove);
+router.post('/:userId/books', controller.addBook);
+router.patch('/:userId/books/:bookId', controller.updateBook)
+
+
 
 
 module.exports = router;
