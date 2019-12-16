@@ -1,7 +1,7 @@
 /* O usuário deve ser capaz de:
 
 criar uma conta, (ok)
-deletar a conta,
+deletar a conta, (ok)
 fazer login,
 encontrar todos usuários, (ok)
 ler suas informações por id, (ok)
@@ -73,9 +73,21 @@ const remove = (req, res) => {
 
 }
 
+const getDonation = (req, res) => {
+
+    userModel.find({ need_donation: true }, (error, users) => {
+        if (error) {
+            return res.status(500).send(error);
+        }
+
+        return res.status(200).send(users);
+    })
+}
+
 module.exports = {
     getAll,
     add,
     getById,
-    remove
+    remove,
+    getDonation
 }
