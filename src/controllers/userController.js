@@ -7,6 +7,10 @@ encontrar todos usuários, (ok)
 ler suas informações por id, (ok)
 encontrar todos que precisam de um livro (doações), (ok)
 adicionar livros, (ok)
+deletar livros,
+alterar descrição dos livros,
+encontrar livros para serem doados,
+encontrar livros por autor,
 
 */
 
@@ -81,12 +85,31 @@ const remove = (req, res) => {
         }
 
         if (user) {
-            return res.status(200).send(`Usuário deletado com sucesso. ${user}`);
+            return res.status(200).send(`Usuário deletado com sucesso.`);
         }
 
         return res.status(404).send('Usuário não encontrado.');
     })
 
+}
+
+const removeBook = (req, res) => {
+    const bookId = req.params.bookId
+    const userId = req.params.userId
+
+    userModel.findOneAndUpdate(
+        { _id: userId },
+        { $pull: 
+            { books: { _id: bookId } } 
+        },
+        { new: true },
+        (error) => {
+            if (error) {
+                return res.status(500).send(error)
+            }
+            return res.status(200).send("Livro deletado com sucesso.")
+        }
+    )
 }
 
 const getDonation = (req, res) => {
@@ -136,5 +159,6 @@ module.exports = {
     remove,
     getDonation,
     addBook,
-    updateBook
+    updateBook,
+    removeBook
 }
