@@ -141,12 +141,10 @@ const getTrade = (req, res) => {
 
         users.forEach(user => {
 
-            console.log("user é: " + user)
             let filteredBook = user.books.filter(book => {
-                console.log("book é:" + book)
                 return book.donation == false
             })
-            console.log("o livro filtrado é"+filteredBook)
+            
             return user.books = filteredBook
         })
 
