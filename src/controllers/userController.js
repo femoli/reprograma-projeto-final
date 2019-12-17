@@ -119,14 +119,16 @@ const getDonation = (req, res) => {
             return res.status(500).send(error);
         }
 
-        let donationBooks = users.filter(user => {
-            console.log(user.books)
-            let filteredBooks = user.filter(book => {
-                return book.donation == "true"
-        });
-        console.log(filteredBooks)
-            return filteredBooks;
-        });
+        users.forEach(user => {
+
+            console.log("user é: " + user)
+            let filteredBook = user.books.filter(book => {
+                console.log("book é:" + book)
+                return book.donation == true
+            })
+            console.log("o livro filtrado é"+filteredBook)
+            return user.books = filteredBook
+        })
 
         return res.status(200).send(users);
     })
