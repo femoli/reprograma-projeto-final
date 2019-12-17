@@ -9,6 +9,7 @@ encontrar todos que precisam de um livro (doações), (ok)
 adicionar livros, (ok)
 deletar livros, (ok)
 alterar descrição dos livros, (ok)
+encontrar livros para serem doados, (ok)
 
 */
 
@@ -97,8 +98,9 @@ const removeBook = (req, res) => {
 
     userModel.findOneAndUpdate(
         { _id: userId },
-        { $pull: 
-            { books: { _id: bookId } } 
+        {
+            $pull:
+                { books: { _id: bookId } }
         },
         { new: true },
         (error) => {
@@ -116,6 +118,15 @@ const getDonation = (req, res) => {
         if (error) {
             return res.status(500).send(error);
         }
+
+        let donationBooks = users.filter(user => {
+            console.log(user.books)
+            let filteredBooks = user.filter(book => {
+                return book.donation == "true"
+        });
+        console.log(filteredBooks)
+            return filteredBooks;
+        });
 
         return res.status(200).send(users);
     })
