@@ -3,9 +3,11 @@
 
 Como projeto final do bootcamp {reprograma}, essa API tem como proposta unir usuários que possuem livros para trocar. Além disso, traz também um pilar de doações, em que pessoas que necessitam de ajuda para adquirir seus livros para vestibular ou faculdade, poderão recebê-los com ajuda de outro usuário.
 
-### Instalação :woman_technologist:
+### Pré-requisitos
 
 Para utilizar essa API, é necessário ter instalado na sua máquina as tecnologias Node.JS e MongoDB.
+
+### Instalação :woman_technologist:
 
 `Fork` esse repositório para seu github. `Clone` na sua máquina. Após entrar na pasta pelo **PROMPT**, dê `npm init` e `npm install`.
 
@@ -38,4 +40,14 @@ A API está sendo escutada na `porta 3000`, dessa forma, para todas as rotas ser
 - `/users/:userId/books/bookId` - remover ou atualizar livros do usuário
 
 
+### Contribuindo com o projeto
+
+1. Faça o _fork_ do projeto (<https://github.com/emilyduraes/reprograma-projeto-final/fork>)
+2. Crie uma _branch_ para sua modificação (`git checkout -b feature/fooBar`)
+3. Faça o _commit_ (`git commit -am 'Add some fooBar'`)
+4. _Push_ (`git push origin feature/fooBar`)
+5. Crie um novo _Pull Request_
+
+
+[![reprograma](http://reprograma.com.br/images/meta/reprograma-fb-549afe21.png)](https://www.reprograma.com.br/)
 
