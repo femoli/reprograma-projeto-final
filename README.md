@@ -5,9 +5,9 @@ Como projeto final do bootcamp {reprograma}, essa API tem como proposta unir usu
 
 ### Instalação :woman_technologist:
 
-Para utilizar essa API, é necessário ter instalado na sua máquina 
+Para utilizar essa API, é necessário ter instalado na sua máquina as tecnologias Node.JS e MongoDB.
 
-`Fork` esse repositório para seu github. `Clone-o` na sua máquina. Após entrar na pasta pelo PROMPT, dê `npm init` e `npm install`.
+`Fork` esse repositório para seu github. `Clone` na sua máquina. Após entrar na pasta pelo **PROMPT**, dê `npm init` e `npm install`.
 
 ### Utilização 
 
@@ -36,5 +36,6 @@ A API está sendo escutada na `porta 3000`, dessa forma, para todas as rotas ser
 - `/users/:userId/books` - adicionar livros no banco do usuário
 
 - `/users/:userId/books/bookId` - remover ou atualizar livros do usuário
+
 
 
