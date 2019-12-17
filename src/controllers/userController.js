@@ -121,10 +121,30 @@ const getDonation = (req, res) => {
 
         users.forEach(user => {
 
+            let filteredBook = user.books.filter(book => {
+                return book.donation == true
+            })
+            
+            return user.books = filteredBook
+        })
+
+        return res.status(200).send(users);
+    })
+}
+
+const getTrade = (req, res) => {
+
+    userModel.find((error, users) => {
+        if (error) {
+            return res.status(500).send(error);
+        }
+
+        users.forEach(user => {
+
             console.log("user é: " + user)
             let filteredBook = user.books.filter(book => {
                 console.log("book é:" + book)
-                return book.donation == true
+                return book.donation == false
             })
             console.log("o livro filtrado é"+filteredBook)
             return user.books = filteredBook
@@ -171,5 +191,6 @@ module.exports = {
     getDonation,
     addBook,
     updateBook,
-    removeBook
+    removeBook,
+    getTrade
 }
